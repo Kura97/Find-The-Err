@@ -1,7 +1,11 @@
-import React, { useEffect } from "react";
+// 5- import useState from react
+import React, { useState } from "react";
 import CardData from "./CardData";
+import {Card,Button} from 'react-bootstrap';
+
 function Cards() {
-  [memeImage, setMemeImahe] = useState();
+  // 6- Added const
+  const [memeImage, setMemeImahe] = useState();
 
   const myRandomEmg = () => {
     const memesArray = CardData.data.card;
@@ -10,9 +14,15 @@ function Cards() {
     setMemeImahe(url);
   };
   return (
-    <div>
-      <button onClick={myRandomEmg}>Get a new image</button>
-      <img src={memeImage}></img>
+    <div className="container " align="center">
+
+    <Card style={{ width: '18rem' }}>
+      <Card.Img variant="top" src={memeImage} />
+      <Card.Body>
+      <Card.Title>Some image</Card.Title>
+      <Button class="btn btn-secondary" onClick={myRandomEmg}>Next Image</Button>
+     </Card.Body>
+    </Card>
     </div>
   );
 }
